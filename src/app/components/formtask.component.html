@@ -1,0 +1,43 @@
+<div class="column is-centered">
+  <div class="column is-half">
+    <div class="box">
+
+      <div class="field">
+        <label class="label">{{title}}</label>
+        <div class="control">
+          <input class="input" type="text" [(ngModel)]="enteredTitle">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">{{description}}</label>
+        <div class="control">
+          <input class="input" type="text" [(ngModel)]="enteredDescription">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">{{priorityCheck}}</label>
+        <div class="control">
+          <select class="input" name="priority" id="priority" [(ngModel)]="enteredPriority">
+            <option *ngFor="let p of priorities" [ngValue]="p.name">{{p.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="container">
+        <button class="button is-success" (click)="addTask()">Save task</button>
+        <label class="label">{{isSaved}}</label>
+      </div>
+    </div>
+
+    <div class="box">
+
+      <p class="label">{{savedTitle}}</p>
+      <p class="label">{{savedDescription}}</p>
+      <p class="label">{{savedPriority}}</p>
+
+    </div>
+
+  </div>
+</div>
