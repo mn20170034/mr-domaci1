@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {Task} from '../task.model';
+import {TodoServices} from '../services/todo.services';
 
 @Component({
   selector: 'app-formtask',
@@ -10,10 +12,15 @@ export class FormtaskComponent{
   description = 'Task description';
   priorityCheck = 'Priority';
 
+  @Output() added = new EventEmitter<Task>();
+
   enteredTitle = '';
   enteredDescription = '';
   enteredPriority = null;
   isSaved = '';
+
+  constructor(private todoService: TodoServices) {
+  }
 
   savedTitle = '';
   savedDescription = '';
@@ -55,5 +62,13 @@ export class FormtaskComponent{
       this.savedPriority = this.enteredPriority;
     }
 
+    setTimeout(() => {
+      this.enteredTitle = '';
+      this.enteredDescription = '';
+      this.enteredPriority = null;
+      this.isSaved = ''; }, 2000);
+
+   // this.added.emit(new Task(this.savedTitle, this.savedDescription, this.savedPriority));
+    this.todoService.addTs(new Task(this.savedTitle, this.savedDescription, this.savedPriority));
   }
 }

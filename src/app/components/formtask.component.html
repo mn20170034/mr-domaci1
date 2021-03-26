@@ -5,39 +5,39 @@
       <div class="field">
         <label class="label">{{title}}</label>
         <div class="control">
-          <input class="input" type="text" [(ngModel)]="enteredTitle">
+          <input class="input" type="text" [(ngModel)]="enteredTitle" [ngStyle]="{background: enteredTitle!==''? '#e0e0e0' : 'white'}">
         </div>
       </div>
 
       <div class="field">
         <label class="label">{{description}}</label>
         <div class="control">
-          <input class="input" type="text" [(ngModel)]="enteredDescription">
+          <input class="input" type="text" [(ngModel)]="enteredDescription" [ngStyle]="{background: enteredDescription!==''? '#bdbdbd' : 'white'}">
         </div>
       </div>
 
       <div class="field">
         <label class="label">{{priorityCheck}}</label>
         <div class="control">
-          <select class="input" name="priority" id="priority" [(ngModel)]="enteredPriority">
+          <select class="input" name="priority" id="priority" [(ngModel)]="enteredPriority" [ngStyle]="{background: enteredPriority!==null ? '#9e9e9e' : 'white'}">
             <option *ngFor="let p of priorities" [ngValue]="p.name">{{p.name}}</option>
           </select>
         </div>
       </div>
 
       <div class="container">
-        <button class="button is-success" (click)="addTask()">Save task</button>
+        <button class="button is-success" (click)="addTask()" [ngStyle]="{background: '#4db6ac'}">Save task</button>
         <label class="label">{{isSaved}}</label>
       </div>
     </div>
 
-    <div class="box">
+ <!--   <div class="box">
 
       <p class="label">{{savedTitle}}</p>
       <p class="label">{{savedDescription}}</p>
       <p class="label">{{savedPriority}}</p>
 
     </div>
-
+-->
   </div>
 </div>

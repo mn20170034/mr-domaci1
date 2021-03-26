@@ -7,10 +7,11 @@ import {NavbarComponent} from './components/navbar.component';
 import {BodyComponent} from './components/body.component';
 import {FormtaskComponent} from './components/formtask.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TaskItemComponent } from './components/task-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HeaderComponent, NavbarComponent, BodyComponent, FormtaskComponent
+    AppComponent, HeaderComponent, NavbarComponent, BodyComponent, FormtaskComponent, TaskItemComponent
   ],
   imports: [
     BrowserModule,
